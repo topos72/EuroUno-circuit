@@ -1,8 +1,15 @@
   /* 
 *  carica  e scarica di un condensatore
+digitalPin =11 Definisce la porta PWM usata per la carica  MODIFICARE in base allo shield
+analogPin = 3  Definisice la porta Analogica usata per la lettura della tensione
+N_dati=250; Definisce il numero di misure effettuate
+E' possibile utilizzare il file PLX CONDENSATORI 
+Serial.println("CLEARDATA") --> sono le istruzioni  per  visualizzare i dati in uscita dalla seriale sul file excel
+Serial.println("CELL,SET,C1,CARICA DEL CONDENSATORE"); // SCRIVE "SCARICA DEL CONDENSATORE" NELLA CASELLA C1 
+Serial.println("LABEL,t [Microseconds],tensione[V]"); // SCRIVE LE ETICHETTE DELLE CASELLE A1 (t [s]) e B1 (V [V])
 *   paola riccobelli*/
-const int analogPin = 3; // Definisice la porta A0 usata per la lettura
-const int digitalPin =11  ; // Definisce la porta 7 usata per la carica
+const int analogPin = 3; // Definisice la porta A3 usata per la lettura
+const int digitalPin =11  ; // Definisce la porta 11 usata per la carica  MODIFICARE in base allo shield
 const int N_dati=250; //numero di misure effettuate
 int i; // Definisice la variabile intera i (contatore)
 int delays = 30;     //delay per la lettura dei valori utilizzata riferimento 
