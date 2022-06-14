@@ -50,7 +50,7 @@ void loop()
   // Loop per la carica
   for (i = 0; i < N_dati; i++)
   {
-    t[i] = (micros() - StartTime)/1000.0;  // Legge il timestamp
+    t[i] = (micros() - StartTime)/1000.0;  // Legge il tempo in millisecondi
     V[i] = analogRead(analogPin); // Legge analogPin e lo mette in array V mette il risultato i
     delayMicroseconds(factor * delays);  // Aspetta tot us
   }
@@ -62,7 +62,7 @@ void loop()
   for (i = 0; i < N_dati; i++)
   {
     Serial.print("DATA,");//scrittura dei dati su EXCEL
-    Serial.print(t[i]);
+    Serial.print(t[i]);// tempo in millisecondi
     Serial.print(",");
     Serial.print(V[i] * 5 / 1023.0, 3);      
     Serial.println(",CARICA"); // Nella colonna C viene scritto CARICA
@@ -80,12 +80,11 @@ void loop()
   // Loop per la carica
   for (i = 0; i < N_dati; i++)
   {
-    t[i] = (micros() - StartTime)/1000.0;  // Legge il timestamp in us, sottrae lo StartTime e mette il risultato i
+    t[i] = (micros() - StartTime)/1000.0;  // tempo in millisecondi
     V[i] = analogRead(analogPin); // Legge analogPin e lo mette in array V
     delayMicroseconds(factor * delays);  // Aspetta tot us
-    //delay(delays);
   }
-Serial.println("Carica scarica SCARICA");
+Serial.println("SCARICA");
   // Loop per la scrittura su porta seriale dei N_dati dati della carica
   for (i = 0; i < N_dati; i++)
   {
