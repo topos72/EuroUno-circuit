@@ -1,13 +1,21 @@
-  /* 
-*  carica  e scarica di un condensatore
-digitalPin =11 Definisce la porta PWM usata per la carica  MODIFICARE in base allo shield
-analogPin = 3  Definisice la porta Analogica usata per la lettura della tensione
-N_dati=250; Definisce il numero di misure effettuate
-E' possibile utilizzare il file PLX CONDENSATORI 
-Serial.println("CLEARDATA") --> sono le istruzioni  per  visualizzare i dati in uscita dalla seriale sul file excel
-Serial.println("CELL,SET,C1,CARICA DEL CONDENSATORE"); // SCRIVE "SCARICA DEL CONDENSATORE" NELLA CASELLA C1 
-Serial.println("LABEL,t [Microseconds],tensione[V]"); // SCRIVE LE ETICHETTE DELLE CASELLE A1 (t [s]) e B1 (V [V])
-*   paola riccobelli*/
+  /*   
+   *  SHIELD EURO 1
+   *  inserire lo shield condensatori [EURO 1] sulla scheda Arduino UNO;
+   *  per effettuare le misure sul tempo caratteristico di 
+   *  carica  e scarica di condensatori 
+   *  sono necessari il PIN e il relativo SWITCH 
+    * --> PIN 11  un condensatore ,selettore dello SWITCH  4
+    * --> PIN 10 due configurazione in parallelo C+C ,selettore dello  SWITCH  3
+    * --> PIN 9  due configurazione in serie 1/C+1/C, selettore dello SWITCH  2
+    * --> PIN 6  un condensatore in serie con due in parallelo,selettore dello SWITCH  1
+   *  la porta analogica di acquisizione del segnale è  la porta ANALOGICA A3  
+   * Output su seriale 
+   * tempo[milliosecondi] <tab> tensione[volt]
+ * E' possibile utilizzare il file PLX CONDENSATORI 
+ * Serial.println("CLEARDATA") --> sono le istruzioni  per  visualizzare i dati in uscita dalla seriale sul file excel
+ * Serial.println("CELL,SET,C1,CARICA DEL CONDENSATORE"); // SCRIVE "SCARICA DEL CONDENSATORE" NELLA CASELLA C1 
+ * Serial.println("LABEL,t [Microseconds],tensione[V]"); // SCRIVE LE ETICHETTE DELLE CASELLE A1 (t [s]) e B1 (V [V])
+  */
 const int analogPin = 3; // Definisice la porta A3 usata per la lettura
 const int digitalPin =11  ; // Definisce la porta 11 usata per la carica  MODIFICARE in base allo shield
 const int N_dati=250; //numero di misure effettuate
