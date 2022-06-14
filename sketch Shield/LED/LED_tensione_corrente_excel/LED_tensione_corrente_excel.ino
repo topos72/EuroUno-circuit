@@ -2,6 +2,11 @@
  * -pin 5 uscita PWM per generare la rampa.
  * -switch 1 led giallo; switch 2 verde; switch 3 rosso
  * -resistenza RD = 100 Ohm
+ Utilizzo del file Excel per visualizzare i dati
+ tramite le righe di comando
+  Serial.println("CLEARDATA"); //RIPULISCE IL FOGLIO EXCEL
+  Serial.println("CELL,SET,C1"); // SCRIVE "SCARICA DEL CONDENSATORE" NELLA CASELLA C1
+  Serial.println("LABEL,tensione[],corrente[A]");
  */
  
 const unsigned int RampPin = 5; //pin 5 uscita PWM per generare la rampa.
@@ -12,7 +17,7 @@ unsigned int i = 0; //variabile che conta gli step durante la salita della rampa
 int V1[256]; //array per memorizzare V1 (d.d.p, letta da analogPin_uno)
 int V2[256]; //array per memorizzare V2 (d.d.p, letta da analogPin_due)
 int start = 1; //flag per fermare il ciclo
-int rd = 200; // Il valore della resistenza RD = 100 Ohm
+int rd = 100; // Il valore della resistenza RD = 100 Ohm
 
 
 //Inizializzazione
