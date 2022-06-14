@@ -2,6 +2,11 @@
  * -pin 5 uscita PWM per generare la rampa.
  * -switch 1 led giallo; switch 2 verde; switch 3 rosso
  * -resistenza RD = 100 Ohm
+ media di N_media valori 
+ utilizzo del file excel per visualizzare i dati
+ Serial.println("CLEARDATA"); //RIPULISCE IL FOGLIO EXCEL
+  Serial.println("CELL,SET,C1"); // SCRIVE "SCARICA DEL CONDENSATORE" NELLA CASELLA C1
+  Serial.println("LABEL,tensione[],corrente[A]");
  */
  
 const unsigned int RampPin = 5; // porta di uscita Segnale PWM
@@ -10,9 +15,9 @@ const unsigned int analogPin_due = 2; // d.d.p. dopo la Rd
 unsigned int i = 0;
 float medio_1 = 0;
 float medio_2 = 0;
-int N_media =6;
+int N_media = 5;
 int start = 1; //flag per fermare il ciclo
-int rd = 200;  //Resistenza Rd da modificare 
+int rd = 100;  //Resistenza Rd da modificare 
 void setup()
 {
   pinMode(RampPin, OUTPUT);
