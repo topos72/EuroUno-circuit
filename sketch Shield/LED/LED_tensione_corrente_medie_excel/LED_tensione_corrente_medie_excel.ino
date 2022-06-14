@@ -28,7 +28,7 @@ void loop()
   delay(1000); // attende 1s
    Serial.println("CLEARDATA"); //RIPULISCE IL FOGLIO EXCEL
   Serial.println("CELL,SET,C1"); // SCRIVE "SCARICA DEL CONDENSATORE" NELLA CASELLA C1
-  Serial.println("LABEL,tensione[V],corrente[A]");
+  Serial.println("LABEL,tensione[V],corrente[mA]");
   for (i = 0; i < 256; i = i + 4) {
     analogWrite(RampPin, i);
     delay(50);
@@ -46,7 +46,7 @@ void loop()
     //Serial.print(5.0 * (analogRead(analogPin_due)) / 1023.0, 4);
     Serial.print(" , ");
 
-    // stampa IntensitÃ  di corrente media sul LED  Ampere
+    // stampa IntensitÃ  di corrente media sul LED, si divide per 1.024 invece che per 1024 per avere la corrente in milliampere invece che in ampere
    Serial.println((5.0 / 1.023) * ((medio_1 - medio_2)) / rd, 4);
     //  Serial.println((5.0 / 1.023) * ((analogRead(analogPin_uno)) - (analogRead(analogPin_due))) / rd, 4);
     medio_1 = 0;
