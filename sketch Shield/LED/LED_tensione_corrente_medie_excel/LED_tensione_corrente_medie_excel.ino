@@ -28,7 +28,7 @@ void loop()
   delay(1000); // attende 1s
    Serial.println("CLEARDATA"); //RIPULISCE IL FOGLIO EXCEL
   Serial.println("CELL,SET,C1"); // SCRIVE "SCARICA DEL CONDENSATORE" NELLA CASELLA C1
-  Serial.println("LABEL,tensione[],corrente[A]");
+  Serial.println("LABEL,tensione[V],corrente[A]");
   for (i = 0; i < 256; i = i + 4) {
     analogWrite(RampPin, i);
     delay(50);
@@ -40,20 +40,20 @@ void loop()
     medio_2 = medio_2 / N_media; //valor medio di 5 letture
     medio_1 = medio_1 / N_media;
   
-    // stampa Tensione media sul LED
+    // stampa Tensione media sul LED Volt
     Serial.print("DATA,");
     Serial.print(5.0 * medio_2  / 1023.0, 4);
     //Serial.print(5.0 * (analogRead(analogPin_due)) / 1023.0, 4);
     Serial.print(" , ");
 
-    // stampa IntensitÃ  di corrente media sul LED
+    // stampa IntensitÃ  di corrente media sul LED  Ampere
    Serial.println((5.0 / 1.023) * ((medio_1 - medio_2)) / rd, 4);
     //  Serial.println((5.0 / 1.023) * ((analogRead(analogPin_uno)) - (analogRead(analogPin_due))) / rd, 4);
     medio_1 = 0;
     medio_2 = 0;
   }
    Serial.println("CELL,SET,C1,TERMINE ACQUISIZIONE DATI");
-  delay(100); // lâ€™intervallo di tempo campionamento 
+  delay(100); // intervallo di tempo campionamento 
   analogWrite(RampPin, 0);
   while (start = 1) {};
 }
