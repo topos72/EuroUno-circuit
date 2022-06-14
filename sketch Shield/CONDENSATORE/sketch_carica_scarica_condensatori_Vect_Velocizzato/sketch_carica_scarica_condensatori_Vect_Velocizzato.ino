@@ -4,7 +4,7 @@
    *  per effettuare le misure sul tempo caratteristico di 
    *  carica  e scarica di condensatori 
    *  sono necessari il PIN e il relativo SWITCH 
-    *  --> PIN 11  un condensatore ,selettore dello SWITCH  4
+    * --> PIN 11  un condensatore ,selettore dello SWITCH  4
     * --> PIN 10 due configurazione in parallelo C+C ,selettore dello  SWITCH  3
     * --> PIN 9  due configurazione in serie 1/C+1/C, selettore dello SWITCH  2
     * --> PIN 6  un condensatore in serie con due in parallelo,selettore dello SWITCH  1
@@ -70,9 +70,9 @@ void loop()
   // Loop per la scrittura su porta seriale 
   for (i = 0; i < M; i++)
   {
- //  Serial.print(t[i]);        // commentare per visualizzare sul PLOTTER SERIALE
- //  Serial.print ( "\t\t" );      // commentare per visualizzare sul PLOTTER SERIALE
-   Serial.println(V[i] * 5 / 1023.0, 3); // Scrive V[i] e va a capo
+    Serial.print(t[i]);        // commentare per visualizzare sul PLOTTER SERIALE
+    Serial.print ( "\t\t" );      // commentare per visualizzare sul PLOTTER SERIALE
+    Serial.println(V[i] * 5 / 1023.0, 3); // Scrive V[i] 
     delay(50);
   }
   delay(500);// Aspetta 500 ms per completare la carica
@@ -94,8 +94,8 @@ void loop()
   Serial.println("scarica SCARICA");
   for (i = 0; i < M; i++)
   { // commentare le successive due righe per visualizzare sul PLOTTER SERIALE
-   // Serial.print(t[i]);       // commentare per visualizzare sul PLOTTER SERIALE
-   // Serial.print ( "\t\t" );     // commentare per visualizzare sul PLOTTER SERIALE
+    Serial.print(t[i]);       // commentare per visualizzare sul PLOTTER SERIALE
+    Serial.print ( "\t\t" );     // commentare per visualizzare sul PLOTTER SERIALE
     Serial.println(V[i] * 5 / 1023.0, 3); // Scrive V[i] e va a capo
     delay(50);
   }
